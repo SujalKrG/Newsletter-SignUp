@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const app = express();
 const request = require("request");
@@ -12,6 +13,10 @@ app.get("/", function(req, res){
     res.sendFile(__dirname + "/signup.html");
 });
 
+//ADDED MY API KEY AND LIST ID INTO ENVIRONMENT VARIABLE
+const token = process.env.API_KEY;
+const listId = process.env.LIST_ID;
+const authkey = "sujalkr:"+token;
 
 app.post("/", function(req, res){
 
@@ -34,12 +39,13 @@ app.post("/", function(req, res){
 
     const jsonData = JSON.stringify(data);
 
-    const url = "https://us12.api.mailchimp.com/3.0/lists/ca49fb51ec";
-
+    // SET THE LIST ID AND API KEY FOR AUTHORIZATION
+    const url = "https://us12.api.mailchimp.com/3.0/lists/"+listId;
     const options = {
         method: "POST",
-        auth: "sujalkr:f7bbf1179c6c2544b8f5878e231af759-us12"
+        auth: "",
     }
+    options.auth=authkey;
 
     const request = https.request(url, options, function(response){
         
