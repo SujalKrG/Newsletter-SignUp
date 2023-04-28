@@ -38,7 +38,7 @@ app.post("/", function(req, res){
 
     const options = {
         method: "POST",
-        auth: "sujalkr:af7bbf1179c6c2544b8f5878e231af759-us12"
+        auth: "sujalkr:f7bbf1179c6c2544b8f5878e231af759-us12"
     }
 
     const request = https.request(url, options, function(response){
@@ -73,3 +73,5 @@ app.listen(process.env.PORT || 3000, function(req, res){
 // f7bbf1179c6c2544b8f5878e231af759-us12
 //List ID
 //ca49fb51ec
+//Name: firstOne   Expires: Fri Apr 26 2024
+//Key: 7qhwNIw5HhR12UJXeyRZ6SfrgaxNLVeJPsaP1NWE
